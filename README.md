@@ -1,2 +1,1 @@
-# dc32-problems
-Crash and Compile problems run during Defcon 32
+# Problem set for DEF CON 32
