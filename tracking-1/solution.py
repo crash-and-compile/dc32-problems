@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import math
+import argparse
 
 # Threshold for determining if a point is near a POI, approx 100 meters
 THRESHOLD_DISTANCE = 0.1  # about 100 meters in decimal degrees
@@ -56,10 +57,17 @@ def find_pois_with_long_stays(tracking, pois, duration_threshold=15):
     return long_stays
 
 def main():
-    pois, tracking = read_tracking_data('problem.txt')
+    parser = argparse.ArgumentParser(description='Find POIs with long stays from tracking data.')
+    parser.add_argument('input_file', type=str, help='Filename for input tracking data')
+    parser.add_argument('output_file', type=str, help='Filename for output results')
+    args = parser.parse_args()
+    
+    pois, tracking = read_tracking_data(args.input_file)
     long_stays = find_pois_with_long_stays(tracking, pois)
-    for poi in long_stays:
-        print(f"[{poi[0]:.6f}, {poi[1]:.6f}]")
+    
+    with open(args.output_file, 'w') as out_file:
+        for poi in long_stays:
+            out_file.write(f"[{poi[0]:.6f}, {poi[1]:.6f}]\n")
 
 if __name__ == "__main__":
     main()

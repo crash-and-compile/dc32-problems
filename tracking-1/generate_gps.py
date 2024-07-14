@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import random
 import math
+import argparse
 
 # Constants
 MIN_STOP_TIME = 16    # Minimum stop time in minutes
@@ -8,7 +9,7 @@ MAX_STOP_TIME = 200   # Maximum stop time in minutes
 MIN_TRAVEL_TIME = 10  # Minimum travel time in minutes
 MAX_TRAVEL_TIME = 200 # Maximum travel time in minutes
 MIN_CYCLES = 50       # Minimum number of cycles
-MAX_CYCLES = 100       # Maximum number of cycles
+MAX_CYCLES = 100      # Maximum number of cycles
 FAKE_LOITER_TIME = 5  # Time spent in fake loitering
 FAKE_LOITER_COUNT = 3 # Number of fake loitering instances
 SPEED = 50 / 60       # Speed in km/min (50 km/h)
@@ -55,12 +56,12 @@ def calculate_bearing(start_lat, start_lon, end_lat, end_lon):
     initial_bearing = math.atan2(x, y)
     return math.degrees(initial_bearing)
 
-def simulate_tracking():
+def simulate_tracking(problem_text, solution_text):
     initial_lat, initial_lon = generate_initial_coordinates()
     points_of_interest = generate_points_of_interest(initial_lat, initial_lon, NUM_POI)
     cycles = random.randint(MIN_CYCLES, MAX_CYCLES)
 
-    with open("problem.txt", "w") as track_file, open("solution.txt", "w") as sol_file:
+    with open(problem_text, "w") as track_file, open(solution_text, "w") as sol_file:
         # Write POIs as the first line in the tracking file
         track_file.write("[" + ", ".join(f"[{lat:.6f},{lon:.6f}]" for lat, lon in points_of_interest) + "]\n")
 
@@ -106,6 +107,14 @@ def simulate_tracking():
                 # Update current location for the next cycle
                 current_lat, current_lon = target_lat, target_lon
 
+def main():
+    parser = argparse.ArgumentParser(description='Simulate GPS tracking data.')
+    parser.add_argument('problem_text', type=str, help='Filename for problem text')
+    parser.add_argument('solution_text', type=str, help='Filename for solution text')
+    args = parser.parse_args()
+    
+    simulate_tracking(args.problem_text, args.solution_text)
+
 if __name__ == "__main__":
-    simulate_tracking()
+    main()
 

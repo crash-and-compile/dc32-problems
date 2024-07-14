@@ -1,3 +1,6 @@
+<!-- RATING: Easy -->
+<!-- NAME: Tracking 1 -->
+<!-- GENERATOR: generate_gps.py -->
 # Tracking 1
 
 You are an employee of Moogle (pronounced “mogul”).  Our corporate slogan is “We aren’t too awfully evil, most of the time”.  Because Mogul owns both the most popular search engine and the most popular cell phone operating system, it is able to make money by correlating the data and targeting advertisements.
