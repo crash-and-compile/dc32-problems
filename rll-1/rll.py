@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+import random
+import string
+import sys
+
+# Configuration for the number of keys
+NUM_KEYS = 50
 
 # Define the encoding table for RLL (2,7)
 RLL_ENCODING_TABLE = {
@@ -15,60 +21,65 @@ RLL_ENCODING_TABLE = {
 RLL_DECODING_TABLE = {v: k for k, v in RLL_ENCODING_TABLE.items()}
 
 def ascii_to_binary(data):
+    """Convert ASCII data to binary."""
     return ''.join(f'{ord(c):08b}' for c in data)
 
 def binary_to_ascii(data):
+    """Convert binary data to ASCII."""
     chars = [data[i:i+8] for i in range(0, len(data), 8)]
     return ''.join(chr(int(c, 2)) for c in chars)
 
 def rll_encode(data):
+    """Encode data using RLL encoding."""
     i = 0
     encoded_data = ''
     while i < len(data):
+        matched = False
         for length in sorted(RLL_ENCODING_TABLE.keys(), key=len, reverse=True):
             if data[i:i+len(length)] == length:
                 encoded_data += RLL_ENCODING_TABLE[length]
                 i += len(length)
+                matched = True
                 break
-        else:
-            unencodable_segment = data[i:i+8]  # Capture the problematic segment
-            raise ValueError(f"No encoding found for sequence '{unencodable_segment}' starting at position {i}")
+        if not matched:
+            # Handle end of data and padding
+            if i < len(data):
+                remaining_bits = data[i:]
+                while remaining_bits not in RLL_ENCODING_TABLE and len(remaining_bits) < 8:
+                    remaining_bits += '0'
+                if remaining_bits in RLL_ENCODING_TABLE:
+                    encoded_data += RLL_ENCODING_TABLE[remaining_bits]
+                i = len(data)
+            else:
+                raise ValueError(f"No encoding found for sequence starting at position {i}")
     return encoded_data
 
-def rll_decode(encoded_data):
-    i = 0
-    decoded_data = ''
-    while i < len(encoded_data):
-        for length in sorted(RLL_DECODING_TABLE.keys(), key=len, reverse=True):
-            if encoded_data[i:i+len(length)] == length:
-                decoded_data += RLL_DECODING_TABLE[length]
-                i += len(length)
-                break
-        else:
-            undecodable_segment = encoded_data[i:i+8]  # Capture the problematic segment
-            raise ValueError(f"No decoding found for sequence '{undecodable_segment}' starting at position {i}")
-    return decoded_data
+def generate_random_string(length):
+    """Generate a random alphanumeric string of a given length."""
+    return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
 
-def encode_ascii_string(ascii_string):
-    binary_data = ascii_to_binary(ascii_string)
-    encoded_data = rll_encode(binary_data)
-    return encoded_data
+def create_challenge_and_solution_files(challenge_filename, solution_filename):
+    """Generate challenge and solution files for RLL encoded random strings."""
+    with open(challenge_filename, 'w') as challenge_file, open(solution_filename, 'w') as solution_file:
+        for _ in range(NUM_KEYS):
+            key_length = random.randint(20, 30)
+            original_string = "Key: " + generate_random_string(key_length)
+            encoded_string = rll_encode(ascii_to_binary(original_string))
+           
+            # Writing to files
+            challenge_file.write(f"{encoded_string}\n")
+            solution_file.write(f"{original_string}\n")
 
-def decode_ascii_string(encoded_string):
-    binary_data = rll_decode(encoded_string)
-    ascii_string = binary_to_ascii(binary_data)
-    return ascii_string
+def main():
+    """Main function to handle command-line arguments and file generation."""
+    if len(sys.argv) != 3:
+        print("Usage: python rll_script.py <challenge_filename> <solution_filename>")
+        sys.exit(1)
+    
+    challenge_filename = sys.argv[1]
+    solution_filename = sys.argv[2]
+    create_challenge_and_solution_files(challenge_filename, solution_filename)
 
-# Example usage
 if __name__ == "__main__":
-    original_string = 'Hello, World!'
-    try:
-        encoded_data = encode_ascii_string(original_string)
-        print(f"Original ASCII String: {original_string}")
-        print(f"Encoded Data: {encoded_data}")
-        
-        decoded_string = decode_ascii_string(encoded_data)
-        print(f"Decoded ASCII String: {decoded_string}")
-    except ValueError as e:
-        print(e)
+    main()
 
