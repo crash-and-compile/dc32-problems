@@ -7,8 +7,14 @@ We are stuck, it's a real quagmire.  The old IT guy at the company we bought als
 
 # Example Input
 ```
+TPHRQYL
+RBFZOUOPD
+NZSZCW
 ```
 
 #Example Output:
 ```
+HOWEVER
+EDUCATION
+PRICES
 ```
