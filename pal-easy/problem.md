@@ -12,7 +12,7 @@ subordinates
 ensconces
 ```
 
-#Example Output:
+# Example Output:
 ```
 salsa
 ensconces

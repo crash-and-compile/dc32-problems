@@ -15,7 +15,7 @@ We can't even find a compatible controller for this WD5011 series disk, but we w
 
 ```
 
-#Example Output:
+# Example Output:
 ```
 Key: dlN2QMsdG1KaI44xu08yqE8MYQb
 ```

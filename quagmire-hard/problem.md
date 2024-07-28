@@ -12,7 +12,7 @@ RBFZOUOPD
 NZSZCW
 ```
 
-#Example Output:
+# Example Output:
 ```
 HOWEVER
 EDUCATION

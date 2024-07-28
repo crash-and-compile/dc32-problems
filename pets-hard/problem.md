@@ -11,7 +11,7 @@ We have yet another former employee relying on obsolete technology to secure the
 iVBORw0KGgoAAAANSUhEUgAAAKAAAAAQCAIAAAAeZ+MPAAABA0lEQVR4nO2YwQ3CMAxFU9RxEDvABCyCxD4swQQwUJfgEJCCHFs/dkrA+N2atm4PfvmRp/NpSS9u92vSctgfqxXyulwfeWY9xn691z9wFTbaXwp+g7m84CyUKXtHrkDvlu/a4aqN8vIbCIOdM+22l1TrfaTrZf9aTbWfAPD6XGLR9dY9pm+C2iuEwc55ZjDtViRNZcoKsg14zyI7zXoZb0e3U1oIg53zdorGPUbyqW9v9nURyWNuRceovSQMds5Ml+wey/MsSmvey1ZF7paEwc6pGJzReYy4y+UfMkfj7upO6fR53SwP5/MztTDYOazBGXyag/Sm7jSO0+rHP8yow2DnPACzLq/Jd97uAAAAAABJRU5ErkJggg==
 ```
 
-#Example Output:
+# Example Output:
 ```
 MZVUWXDUTH
 ```

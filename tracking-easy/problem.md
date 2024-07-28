@@ -54,7 +54,7 @@ A place of interest is defined as a place where they spent 15 or more minutes in
 [29.711772, -114.009442]
 ```
 
-#Example Output:
+# Example Output:
 ```
 [29.585351, -114.277807]
 ```
