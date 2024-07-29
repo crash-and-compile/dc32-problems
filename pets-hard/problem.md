@@ -3,7 +3,7 @@
 <!-- GENERATOR: generator.py -->
 # Pet Encoding
 
-We have yet another former employee relying on obsolete technology to secure the keys to the back catalog.  This time, our keys are encoded in a way we can't even print out, so we took screen shots of what they look like.  We are pretty sure this one goes back to the early 8-bit days.  Your input is base64 encoded PNGs, one per line, output plain text, one per line.
+Our keys seem to be encoded using something from the early 8-bit days. Your input is base64 encoded PNGs, one per line, output plain text, one per line.  The output should be the resulting decoded text.
 
 # Example Input
 
