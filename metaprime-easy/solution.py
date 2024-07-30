@@ -32,11 +32,11 @@ def process_file(filename):
         for line in file:
             number = int(line.strip())
             if digit_sum_prime(number):
-                print(f"{number} MP")
+                print(f"MP")
             elif quasi_meta_prime(number):
-                print(f"{number} QMP")
+                print(f"QMP")
             else:
-                print(f"{number}")
+                print(f"NONE")
 
 # Usage
 if len(sys.argv) != 2:

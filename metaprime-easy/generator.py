@@ -99,7 +99,7 @@ def write_files(numbers_file, answers_file, numbers):
     with open(numbers_file, 'w') as nf, open(answers_file, 'w') as af:
         for number, label in numbers:
             nf.write(f"{number}\n")
-            af.write(f"{number} {label}\n" if label else f"{number}\n")
+            af.write(f"{label}\n" if label else f"NONE\n")
 
 # Main execution
 if __name__ == "__main__":
