@@ -1,4 +1,4 @@
-<!-- RATING: Medium -->
+<!-- RATING: Hard -->
 <!-- NAME: Chainwords -->
 <!-- GENERATOR: generator.py -->
 # Chainwords
