@@ -1,6 +1,6 @@
 <!-- RATING: Medium -->
 <!-- NAME: Obsolete -->
-<!-- GENERATOR: rll.py -->
+<!-- GENERATOR: generator.py -->
 # Obsolete
 
 This data was on a ReaLLy obsolete hard disk, and the computer it was attached to has failed.  We can't even find a compatible controller for this WD5011 series disk, but we were able to find a tool that will dump the raw magnetic transistions from the disk as a string of ones and zeros.  We do know that each key will begin with "Key:" when decoded.
