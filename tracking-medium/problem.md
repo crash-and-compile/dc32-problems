@@ -1,4 +1,4 @@
-<!-- RATING: Easy -->
+<!-- RATING: Medium -->
 <!-- NAME: Tracking 1 -->
 <!-- GENERATOR: generate_gps.py -->
 # Tracking 1
