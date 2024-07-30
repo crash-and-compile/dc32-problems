@@ -51,13 +51,13 @@ def generate_challenge_solution(challenge_file, solution_file):
     challenge_words = selected_anapalindromes + selected_regular_words
     random.shuffle(challenge_words)
 
-    with open(challenge_file, 'w') as cf:
-        cf.write("\n".join(challenge_words) + "\n")
-
-    with open(solution_file, 'w') as sf:
+    with open(challenge_file, 'w') as cf, open(solution_file, 'w') as sf:
         for word in challenge_words:
+            cf.write(word + "\n")
             if word.lower() in map(str.lower, ANAPALINDROMES):
-                sf.write(word + "\n")
+                sf.write("True\n")
+            else:
+                sf.write("False\n")
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:

@@ -23,7 +23,9 @@ def main(filename):
     
     for word in words:
         if is_anapalindrome(word):
-            print(word)
+            print("True")
+        else:
+            print("False")
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
