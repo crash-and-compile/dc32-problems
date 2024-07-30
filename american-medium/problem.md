@@ -3,7 +3,7 @@
 <!-- GENERATOR: generator.py -->
 # American Numbers
 
-A number is an "American Number" if, in any base, 10 or less, it can be represented as an increasing sequence of digits.  The input is a list of numbers in base 10, output the number if it's an American number, or nothing if it is not.  
+A number is an "American Number" if, in any base, 10 or less, it can be represented as an increasing sequence of digits.  The input is a list of numbers in base 10, output True if it's an American number, False if it is not.  
 
 # Example Input
 ```
@@ -19,8 +19,12 @@ A number is an "American Number" if, in any base, 10 or less, it can be represen
 
 # Example Output:
 ```
-1865
-19
-6053444
-4202
+True
+True
+True
+False
+False
+False
+False
+True
 ```

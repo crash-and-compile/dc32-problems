@@ -27,7 +27,10 @@ def main(file_name):
     for num in numbers:
         num = num.strip()  # Remove any trailing newlines or spaces
         if is_american(num):
-            print(num)
+            print("True")
+        else:
+            print("False")
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:

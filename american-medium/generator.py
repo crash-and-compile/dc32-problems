@@ -69,8 +69,10 @@ def main(file1, file2):
     with open(file1, 'w') as f1, open(file2, 'w') as f2:
         for num in mixed_numbers:
             f1.write(f"{num}\n")
-        for num in american_numbers:
-            f2.write(f"{num}\n")
+            if is_american(num):
+                f2.write("True\n")
+            else:
+                f2.write("False\n")
 
 
 if __name__ == "__main__":
